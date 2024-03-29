@@ -6,7 +6,7 @@ import {
 const HomeScreen = () => {
   return(
     <View>
-      <Text>Example</Text>
+      <Text>Home screen</Text>
     </View>
   );
 };
