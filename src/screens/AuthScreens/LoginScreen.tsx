@@ -32,55 +32,57 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
   };
 
   return (
-    <ImageBackground
-      source={require("./../../img/auth-backgrounds/login-bg.jpg")}
-      style={Styles.backgroundImage}
-    >
-      <StatusBar style="light" />
-      <View style={Styles.overlay}>
-        <View style={Styles.header}>
-          <Text style={Styles.title}>SUNDIAL</Text>
-          <Text style={Styles.text}>Inicia sesion en tu cuenta.</Text>
-        </View>
+    <View style={Styles.backgroundColored}>
+      <ImageBackground
+        source={require("./../../img/auth-backgrounds/login-bg.jpg")}
+        style={Styles.backgroundImage}
+      >
+        <StatusBar style="light" />
+        <View style={Styles.overlay}>
+          <View style={Styles.header}>
+            <Text style={Styles.title}>SUNDIAL</Text>
+            <Text style={Styles.text}>Inicia sesion en tu cuenta.</Text>
+          </View>
 
-        <View style={Styles.form}>
-          <TextInputWithIcon
-            icon={"mail"}
-            iconSize={25}
-            keyboardType="email-address"
-            placeholder={"Correo"}
-            onChangeText={handleEmailChange}
-            value={email}
-          />
-          <TextInputWithIcon
-            icon={"key"}
-            iconSize={25}
-            keyboardType="password"
-            placeholder={"Contrasena"}
-            onChangeText={handlePasswordChange}
-            value={password}
-          />
-          <InputSendBtn text={"Inicia sesion"} onPress={handleLogin} />
-          <Text style={Styles.textSecondary}>
-            O puedes{" "}
-            <LinkText
-              text={"registrarte"}
-              onPress={() =>
-                navigation.navigate("Auth", { screen: "register" })
-              }
+          <View style={Styles.form}>
+            <TextInputWithIcon
+              icon={"mail"}
+              iconSize={25}
+              keyboardType="email-address"
+              placeholder={"Correo"}
+              onChangeText={handleEmailChange}
+              value={email}
             />
-            , o{" "}
-            <LinkText
-              text={"recuperar tu contrasena"}
-              onPress={() =>
-                navigation.navigate("Auth", { screen: "register" })
-              }
+            <TextInputWithIcon
+              icon={"key"}
+              iconSize={25}
+              keyboardType="password"
+              placeholder={"Contrasena"}
+              onChangeText={handlePasswordChange}
+              value={password}
             />
-            .
-          </Text>
+            <InputSendBtn text={"Inicia sesion"} onPress={handleLogin} />
+            <Text style={Styles.textSecondary}>
+              O puedes{" "}
+              <LinkText
+                text={"registrarte"}
+                onPress={() =>
+                  navigation.navigate("Auth", { screen: "register" })
+                }
+              />
+              , o{" "}
+              <LinkText
+                text={"recuperar tu contrasena"}
+                onPress={() =>
+                  navigation.navigate("Auth", { screen: "register" })
+                }
+              />
+              .
+            </Text>
+          </View>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 

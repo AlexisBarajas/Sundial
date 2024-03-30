@@ -38,33 +38,38 @@ const ConfirmEmailScreen = ({ navigation, route }: Props) => {
   };
 
   return (
-    <ImageBackground
-      source={require("./../../img/auth-backgrounds/login-bg.jpg")}
-      style={Styles.backgroundImage}
-    >
-      <StatusBar style="light" />
-      <View style={Styles.overlay}>
-        <View style={Styles.header}>
-          <Text style={Styles.title}>SUNDIAL</Text>
-          <Text style={Styles.text}>
-            Ingresa el codigo de confirmacion enviado a tu correo {email}.
-          </Text>
-        </View>
+    <View style={Styles.backgroundColored}>
+      <ImageBackground
+        source={require("./../../img/auth-backgrounds/login-bg.jpg")}
+        style={Styles.backgroundImage}
+      >
+        <StatusBar style="light" />
+        <View style={Styles.overlay}>
+          <View style={Styles.header}>
+            <Text style={Styles.title}>SUNDIAL</Text>
+            <Text style={Styles.text}>
+              Ingresa el codigo de confirmacion enviado a tu correo {email}.
+            </Text>
+          </View>
 
-        <View style={Styles.form}>
-          <TextInputWithIcon
-            icon={"key"}
-            iconSize={25}
-            keyboardType="number-pad"
-            placeholder={"Codigo"}
-            onChangeText={handleChangeEmail}
-            value={userCode}
-          />
-          <InputSendBtn text={"Confirmar"} onPress={handleSetPassword} />
-          <LinkText text={"Reenviar codigo"} onPress={() => sendEmail(email)} />
+          <View style={Styles.form}>
+            <TextInputWithIcon
+              icon={"key"}
+              iconSize={25}
+              keyboardType="number-pad"
+              placeholder={"Codigo"}
+              onChangeText={handleChangeEmail}
+              value={userCode}
+            />
+            <InputSendBtn text={"Confirmar"} onPress={handleSetPassword} />
+            <LinkText
+              text={"Reenviar codigo"}
+              onPress={() => sendEmail(email)}
+            />
+          </View>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 

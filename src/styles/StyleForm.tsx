@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Costants from "expo-constants";
+import Colors from "./Colors";
 
 
 
@@ -9,8 +10,12 @@ const Styles = StyleSheet.create({
     resizeMode: 'cover', 
     justifyContent: 'center',
   },
+  backgroundColored: {
+    backgroundColor: Colors.background,
+    flex: 1,
+  },
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: Colors.overlay,
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingHorizontal: 20,
@@ -30,25 +35,25 @@ const Styles = StyleSheet.create({
 
 
   title: {
-    color: "#fff",
+    color: Colors.text,
     fontWeight: "900",
     fontSize: 40,
     textAlign: "center",
   },
   text: {
-    color: 'rgba(250, 250, 250, 0.7)',
+    color: Colors.textSecondary,
     fontWeight: "400",
     fontSize: 20,
     textAlign: "center",
   },
   textSecondary: {
-    color: 'rgba(250, 250, 250, 0.7)',
+    color: Colors.textSecondary,
     fontWeight: "400",
     fontSize: 20,
     textAlign: "left",
   },
   textClickeable: {
-    color: "#fff",
+    color: Colors.text,
     opacity: 0.7,
     fontWeight: "400",
     fontSize: 20,
@@ -60,7 +65,7 @@ const Styles = StyleSheet.create({
 
 
   input: {
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    backgroundColor: Colors.inputBackgroundColor,
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
@@ -69,34 +74,34 @@ const Styles = StyleSheet.create({
     borderRadius: 15,
   },
   inputIcon: {
-    color: "rgba(255, 255, 255, 0.7)",
+    color: Colors.inputIconColor,
   },
   inputText: {
-    color: "#fff",
+    color: Colors.text,
     width: "100%",
     flex: 1,
     fontSize: 20,
   },
   inputTextColor: {
-    color: "rgba(255, 255, 255, 0.7)",
+    color: Colors.inputTextColor,
   },
 
 
 
 
   sendBtn: {
-    backgroundColor: "#fff",
-    paddingVertical: 15,
+    backgroundColor: Colors.text,
+    paddingVertical: 10,
     borderRadius: 15,
     alignItems: "center",
   },
   sendBtnText: {
-    color: "#000",
+    color: Colors.inputBtnTextColor,
     fontSize: 20,
     fontWeight: "700",
   },
   t: {
-    backgroundColor: "red",
+    backgroundColor: Colors.primary,
   }
 });
 

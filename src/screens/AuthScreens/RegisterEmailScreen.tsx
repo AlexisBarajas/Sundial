@@ -40,50 +40,52 @@ const RegisterEmailScreen /* : React.FC<RegisterEmailProps> */ = (
   };
 
   return (
-    <ImageBackground
-      source={require("./../../img/auth-backgrounds/register-bg.jpg")}
-      style={Styles.backgroundImage}
-    >
-      <StatusBar style="auto" />
-      <View style={Styles.overlay}>
+    <View style={Styles.backgroundColored}>
+      <ImageBackground
+        source={require("./../../img/auth-backgrounds/register-bg.jpg")}
+        style={Styles.backgroundImage}
+      >
+        <StatusBar style="auto" />
         <View style={Styles.overlay}>
-          <View style={Styles.header}>
-            <Text style={Styles.title}>SUNDIAL</Text>
-            <Text style={Styles.text}>Registra una nueva cuenta.</Text>
-          </View>
+          <View style={Styles.overlay}>
+            <View style={Styles.header}>
+              <Text style={Styles.title}>SUNDIAL</Text>
+              <Text style={Styles.text}>Registra una nueva cuenta.</Text>
+            </View>
 
-          <View style={Styles.form}>
-            <TextInputWithIcon
-              icon={"mail"}
-              iconSize={25}
-              keyboardType="email-address"
-              placeholder={"Correo"}
-              onChangeText={handleEmailChange}
-              value={email}
-            />
-            <TextInputWithIcon
-              icon={"mail-outline"}
-              iconSize={25}
-              keyboardType="email-address"
-              placeholder={"Repite tu correo"}
-              onChangeText={handleEmailConfirmChange}
-              value={emailConfirm}
-            />
-            <InputSendBtn onPress={handleRegisterPassword} text="Continuar" />
-            <Text style={Styles.textSecondary}>
-              O{" "}
-              <LinkText
-                text={"Inicia sesion"}
-                onPress={() =>
-                  navigation.navigate("Auth", { screen: "login" })
-                }
+            <View style={Styles.form}>
+              <TextInputWithIcon
+                icon={"mail"}
+                iconSize={25}
+                keyboardType="email-address"
+                placeholder={"Correo"}
+                onChangeText={handleEmailChange}
+                value={email}
               />
-              .
-            </Text>
+              <TextInputWithIcon
+                icon={"mail-outline"}
+                iconSize={25}
+                keyboardType="email-address"
+                placeholder={"Repite tu correo"}
+                onChangeText={handleEmailConfirmChange}
+                value={emailConfirm}
+              />
+              <InputSendBtn onPress={handleRegisterPassword} text="Continuar" />
+              <Text style={Styles.textSecondary}>
+                O{" "}
+                <LinkText
+                  text={"Inicia sesion"}
+                  onPress={() =>
+                    navigation.navigate("Auth", { screen: "login" })
+                  }
+                />
+                .
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 

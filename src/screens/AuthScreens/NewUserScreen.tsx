@@ -27,22 +27,24 @@ const NewUserScreen = ({ navigation, route }: Props) => {
   };
 
   return (
-    <ImageBackground
-      source={require("./../../img/auth-backgrounds/login-bg.jpg")}
-      style={Styles.backgroundImage}
-    >
-      <StatusBar style="light" />
-      <View style={Styles.overlay}>
-        <View style={Styles.header}>
-          <Text style={Styles.title}>SUNDIAL</Text>
-          <Text style={Styles.text}>Bienvenido, {username}.</Text>
-        </View>
+    <View style={Styles.backgroundColored}>
+      <ImageBackground
+        source={require("./../../img/auth-backgrounds/login-bg.jpg")}
+        style={Styles.backgroundImage}
+      >
+        <StatusBar style="light" />
+        <View style={Styles.overlay}>
+          <View style={Styles.header}>
+            <Text style={Styles.title}>SUNDIAL</Text>
+            <Text style={Styles.text}>Bienvenido, {username}.</Text>
+          </View>
 
-        <View style={Styles.form}>
-          <InputSendBtn onPress={handleLogin} text={"Iniciar sesion"} />
+          <View style={Styles.form}>
+            <InputSendBtn onPress={handleLogin} text={"Iniciar sesion"} />
+          </View>
         </View>
-      </View>
-    </ImageBackground>
+      </ImageBackground>
+    </View>
   );
 };
 
