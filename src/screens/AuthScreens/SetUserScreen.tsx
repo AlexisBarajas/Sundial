@@ -1,9 +1,14 @@
-import { View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
-import AppTopBar from "../../components/AppTopBar";
+import { ImageBackground, View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import Styles from "../../styles/StyleForm";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
+// Styles
+import Styles from "../../styles/StyleForm";
+
+// Components
+import InputSendBtn from "../../components/InputSendBtn";
+import LinkText from "../../components/LinkText";
+import TextInputWithIcon from "../../components/TextInputWithIcon";
 
 interface Props extends StackScreenProps<any, any> {}
 
@@ -25,30 +30,35 @@ const SetUserScreen = ({ navigation, route }: Props) => {
   };
 
   return (
-    <View>
-      <AppTopBar></AppTopBar>
-      <View>
-        <StatusBar style="auto" />
-        <View>
-          <View>
-            <Text>SUNDIAL</Text>
-            <Text>Crea tu usuario</Text>
-          </View>
+    <ImageBackground
+      source={require("./../../img/auth-backgrounds/login-bg.jpg")}
+      style={Styles.backgroundImage}
+    >
+      <StatusBar style="light" />
+      <View style={Styles.overlay}>
+        <View style={Styles.header}>
+          <Text style={Styles.title}>SUNDIAL</Text>
+          <Text style={Styles.text}>
+            Ingresa un nombre de usuario para tu cuenta.
+          </Text>
+        </View>
 
-          <View>
-            <TextInput
-              placeholder="Nombre de usuario"
-              onChangeText={handleUserChange}
-              value={username}
-            />
-
-            <TouchableWithoutFeedback onPress={handleCreateUser}>
-              <Text>Continuar</Text>
-            </TouchableWithoutFeedback>
-          </View>
+        <View style={Styles.form}>
+          <TextInputWithIcon
+            icon={"person"}
+            iconSize={25}
+            keyboardType="default"
+            placeholder={"Nombre de usuario"}
+            onChangeText={handleUserChange}
+            value={username}
+          />
+          <InputSendBtn
+            onPress={handleCreateUser}
+            text={"Crear cuenta"}
+          />
         </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 

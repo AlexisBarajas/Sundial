@@ -10,7 +10,6 @@ const AppTopBar: React.FC = () => {
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View>
           <Text>Regresar</Text>
-          <Text>Regresar</Text>
         </View>
       </TouchableOpacity>
     </View>

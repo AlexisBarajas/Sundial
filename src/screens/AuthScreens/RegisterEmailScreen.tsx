@@ -1,36 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-// import { NavigationProp } from "@react-navigation/native";
-// import { StackNavigationProp } from "@react-navigation/stack";
 import { StackScreenProps } from "@react-navigation/stack";
+
+// Styles
 import Styles from "../../styles/StyleForm";
-// import Costants from "expo-constants";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableWithoutFeedback,
-} from "react-native";
+// Components
+import InputSendBtn from "../../components/InputSendBtn";
+import LinkText from "../../components/LinkText";
+import TextInputWithIcon from "../../components/TextInputWithIcon";
 
-interface Props extends StackScreenProps<any, any>{};
+import { Text, View, TextInput, ImageBackground } from "react-native";
 
-// interface LoginScreenProps {
-//   navigation: NavigationProp<any>;
-// }
+interface Props extends StackScreenProps<any, any> {}
 
-// type RootStackParamList = {
-//   ConfirmEmail: { email: string; confirmationCode: string };
-// };
-
-// type RegisterEmailProps = {
-//   navigation: StackNavigationProp<RootStackParamList, "ConfirmEmail">;
-// };
-
-const RegisterEmailScreen/* : React.FC<RegisterEmailProps> */ = ({
-  navigation
-} : Props/* : LoginScreenProps */) => {
+const RegisterEmailScreen /* : React.FC<RegisterEmailProps> */ = (
+  { navigation }: Props /* : LoginScreenProps */
+) => {
   const [email, setEmail] = useState("");
   const [emailConfirm, setEmailConfirm] = useState("");
 
@@ -45,7 +32,7 @@ const RegisterEmailScreen/* : React.FC<RegisterEmailProps> */ = ({
   const handleRegisterPassword = () => {
     // Validate information
     const confirmationCode = "123ABC";
-    
+
     navigation.navigate("confirm_email", {
       mail: email,
       code: confirmationCode,
@@ -53,46 +40,50 @@ const RegisterEmailScreen/* : React.FC<RegisterEmailProps> */ = ({
   };
 
   return (
-    <View>
+    <ImageBackground
+      source={require("./../../img/auth-backgrounds/register-bg.jpg")}
+      style={Styles.backgroundImage}
+    >
       <StatusBar style="auto" />
-      <View>
-        <View>
-          <Image
-            source={require("./../../../assets/favicon.png")}
-          />
-          <Text>SUNDIAL</Text>
-          <Text>Registra una nueva cuenta.</Text>
-        </View>
-        <View>
-          <TextInput
-            placeholder="Correo"
-            keyboardType="email-address"
-            onChangeText={handleEmailChange}
-            value={email}
-          />
-          <TextInput
-            placeholder="Repite tu correo"
-            keyboardType="email-address"
-            onChangeText={handleEmailConfirmChange}
-            value={emailConfirm}
-          />
-          <TouchableWithoutFeedback onPress={handleRegisterPassword}>
-            <Text>Continuar</Text>
-          </TouchableWithoutFeedback>
+      <View style={Styles.overlay}>
+        <View style={Styles.overlay}>
+          <View style={Styles.header}>
+            <Text style={Styles.title}>SUNDIAL</Text>
+            <Text style={Styles.text}>Registra una nueva cuenta.</Text>
+          </View>
+
+          <View style={Styles.form}>
+            <TextInputWithIcon
+              icon={"mail"}
+              iconSize={25}
+              keyboardType="email-address"
+              placeholder={"Correo"}
+              onChangeText={handleEmailChange}
+              value={email}
+            />
+            <TextInputWithIcon
+              icon={"mail-outline"}
+              iconSize={25}
+              keyboardType="email-address"
+              placeholder={"Repite tu correo"}
+              onChangeText={handleEmailConfirmChange}
+              value={emailConfirm}
+            />
+            <InputSendBtn onPress={handleRegisterPassword} text="Continuar" />
+            <Text style={Styles.textSecondary}>
+              O{" "}
+              <LinkText
+                text={"Inicia sesion"}
+                onPress={() =>
+                  navigation.navigate("Auth", { screen: "login" })
+                }
+              />
+              .
+            </Text>
+          </View>
         </View>
       </View>
-      <View>
-        <Text>
-          O{" "}
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("login")}
-          >
-            <Text>inicia sesion</Text>
-          </TouchableWithoutFeedback>
-          .
-        </Text>
-      </View>
-    </View>
+    </ImageBackground>
   );
 };
 
