@@ -12,7 +12,13 @@ const Stack = createStackNavigator();
 
 const AuthNavigator: React.FC = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName="login"
+      screenOptions={{
+        headerShown: false,
+        animationEnabled: false,
+      }}
+    >
       <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="register" component={RegisterEmailScreen} options={{ headerShown: false }} />
       <Stack.Screen name="confirm_email" component={ConfirmEmailScreen} options={{ headerShown: false }} />
