@@ -61,7 +61,8 @@ const SetPasswordScreen = ({ navigation, route }: Props) => {
             <TextInputWithIcon
               icon={"key"}
               iconSize={25}
-              keyboardType="password"
+              keyboardType={"default"}
+              secureTextEntry={true}
               placeholder={"Contrasena"}
               onChangeText={handlePasswordChange}
               value={password}
@@ -69,7 +70,8 @@ const SetPasswordScreen = ({ navigation, route }: Props) => {
             <TextInputWithIcon
               icon={"key"}
               iconSize={25}
-              keyboardType="password"
+              keyboardType={"default"}
+              secureTextEntry={true}
               placeholder={"Confirmar contrasena"}
               onChangeText={handlePasswordConfirmChange}
               value={secondPassword}

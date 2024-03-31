@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, KeyboardTypeOptions  } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Styles from "../styles/StyleForm";
 
@@ -10,7 +10,8 @@ type InputTextSendProps = {
   placeholder: string;
   onChangeText: (text: string) => void;
   value: string;
-  keyboardType: "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "password" ;
+  keyboardType: "email-address" | "password" | "default" | "numeric" | "phone-pad" | "visible-password" | "ascii-capable" | "numbers-and-punctuation" | "url" | "number-pad";
+  secureTextEntry?: boolean | undefined;
 }
 
 
@@ -21,8 +22,8 @@ const TextInputWithIcon = (props: InputTextSendProps) => {
       <TextInput
         style={Styles.inputText}
         placeholder={props.placeholder}
-        secureTextEntry={props.keyboardType === "password"}
-        keyboardType={props.keyboardType}
+        secureTextEntry={props.secureTextEntry}
+        keyboardType={props.keyboardType as KeyboardTypeOptions}
         placeholderTextColor={Styles.inputTextColor.color}
         onChangeText={props.onChangeText}
         value={props.value}

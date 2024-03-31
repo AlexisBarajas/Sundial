@@ -10,12 +10,12 @@ const Colors = {
   background: '#000000',
   overlay: 'rgba(0, 0, 0, 0.4)',
   inputBackgroundColor: 'rgba(255, 255, 255, 0.2)',
-  inputIconColor: 'rgba(255, 255, 255, 0.2)',
-  inputTextColor: 'rgba(245, 245, 245)',
-  inputBtnTextColor: 'rgba(0, 0, 0)',
+  inputIconColor: 'rgba(255, 255, 255, 0.7)',
+  inputTextColor: 'rgb(245, 245, 245)',
+  inputBtnTextColor: 'rgb(0, 0, 0)',
   // text color
   text: '#ffffff',
-  textSecondary: 'rgba(240, 240, 240)',
+  textSecondary: 'rgb(240, 240, 240)',
   textClickeable: '#ffffff',
 };
 

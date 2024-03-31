@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
             <TextInputWithIcon
               icon={"mail"}
               iconSize={25}
-              keyboardType="email-address"
+              keyboardType={"email-address"}
               placeholder={"Correo"}
               onChangeText={handleEmailChange}
               value={email}
@@ -56,7 +56,8 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
             <TextInputWithIcon
               icon={"key"}
               iconSize={25}
-              keyboardType="password"
+              keyboardType={"default"}
+              secureTextEntry={true}
               placeholder={"Contrasena"}
               onChangeText={handlePasswordChange}
               value={password}
