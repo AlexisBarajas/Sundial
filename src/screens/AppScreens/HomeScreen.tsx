@@ -1,6 +1,6 @@
 import { Text, View, ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import MapView from "react-native-maps";
+// import MapView from "react-native-maps";
 import AppStyles from "../../styles/AppStyles";
 
 const HomeScreen = () => {
