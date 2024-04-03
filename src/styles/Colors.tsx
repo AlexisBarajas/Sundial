@@ -8,6 +8,7 @@ const Colors = {
   tertiary: '#00ff00',
   // Others
   background: '#000000',
+  backgroundSecondary: '#fff',
   overlay: 'rgba(0, 0, 0, 0.4)',
   inputBackgroundColor: 'rgba(255, 255, 255, 0.2)',
   inputIconColor: 'rgba(255, 255, 255, 0.7)',
@@ -17,6 +18,7 @@ const Colors = {
   text: '#ffffff',
   textSecondary: 'rgb(240, 240, 240)',
   textClickeable: '#ffffff',
+  textBlack: '#000000',
 };
 
 export default Colors;

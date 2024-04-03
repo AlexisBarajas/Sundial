@@ -38,8 +38,8 @@ const AppNavigator: React.FC = () => {
           tabBarLabel: () => null
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen}></Tab.Screen>
-        <Tab.Screen name="Settings" component={SettingsScreen}></Tab.Screen>
+        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} ></Tab.Screen>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} ></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
