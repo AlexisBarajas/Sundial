@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Colors from "../styles/Colors";
 
 // Screens
 import HomeScreen from "./../screens/AppScreens/HomeScreen";
@@ -11,7 +12,9 @@ const Tab = createBottomTabNavigator();
 
 const AppNavigator: React.FC = () => {
   return (
-    <NavigationContainer independent={true}>
+    <NavigationContainer
+      independent={true}
+    >
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -30,11 +33,10 @@ const AppNavigator: React.FC = () => {
                 break;
             }
 
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "green",
-          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: Colors.primary,
+          tabBarInactiveTintColor: Colors.gray,
           tabBarLabel: () => null
         })}
       >
