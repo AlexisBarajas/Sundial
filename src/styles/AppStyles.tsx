@@ -49,6 +49,13 @@ const AppStyles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+  
+  sectionHeader: {
+    marginBottom: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
 
   // Button
 
@@ -64,11 +71,29 @@ const AppStyles = StyleSheet.create({
   },
   primaryButtonText: {
     color: Colors.text,
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 19,
   },
   iconColor: {
     color: Colors.text,
+  },
+
+  SecondaryButton: {
+    //backgroundColor: Colors.secondary,
+    borderRadius: 20,
+    // marginBottom: 20,
+  },
+  secondaryButtonText: {
+    color: Colors.textBlack,
+    borderWidth: 1,
+    borderColor: Colors.borderPrimaryColor,
+    borderRadius: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    fontSize: 13,
+  },
+  sectionHeaderTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
   }
 })
 

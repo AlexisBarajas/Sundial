@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 // import MapView from "react-native-maps";
 // Components
 import ButtonWithIcon from "../../components/ButtonWithIcon";
+import ButtonWithBorder from "../../components/ButtonWithBorder";
 // Styles
 import AppStyles from "../../styles/AppStyles";
 
@@ -30,10 +31,20 @@ const HomeScreen = () => {
       </View>
 
       <ButtonWithIcon
-        icon="search"
+        icon="compass"
         title="Realizar analisis de zona"
         onPress={() => console.log("Search")}
-        ></ButtonWithIcon>
+      />
+
+      <View>
+        <View style={AppStyles.sectionHeader}>
+          <Text style={AppStyles.sectionHeaderTitle}>Registro de analisis</Text>
+          <ButtonWithBorder
+            title="Ver mas"
+            onPress={() => console.log("Search")}
+          />
+        </View>
+      </View>
     </View>
   );
 };

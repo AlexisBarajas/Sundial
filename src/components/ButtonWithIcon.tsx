@@ -11,7 +11,7 @@ type ButtonWithIconProps = {
 const ButtonWithIcon = ({ icon, title, onPress } : ButtonWithIconProps) => {
   return (
     <TouchableOpacity style={AppStyles.PrimaryButton} onPress={onPress}>
-      <Ionicons name={icon} size={20} color={AppStyles.iconColor.color} />
+      <Ionicons name={icon} size={25} color={AppStyles.iconColor.color} />
       <Text style={AppStyles.primaryButtonText}>{title}</Text>
     </TouchableOpacity>
   );

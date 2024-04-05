@@ -7,6 +7,7 @@ const Colors = {
   secondary: '#0000ff',
   tertiary: '#00ff00',
   // Others
+  borderPrimaryColor: '#000',
   background: '#000000',
   backgroundSecondary: '#fff',
   overlay: 'rgba(0, 0, 0, 0.4)',
