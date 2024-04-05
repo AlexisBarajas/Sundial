@@ -37,7 +37,6 @@ const AppStyles = StyleSheet.create({
   },
   backgroundCardImage: {
     position: "relative",
-    flex: 1,
     resizeMode: 'cover',
     width: "100%",
     height: "100%",
@@ -55,6 +54,27 @@ const AppStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+
+  errorCard: {
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  errorCardText: {
+    marginTop: 20,
+    color: Colors.textBlack,
+    fontSize: 20,
+    textAlign: "center",
+  },
+
+  // Images
+
+  noDataImage: {
+    width: 200,
+    height: 200,
+    resizeMode: "contain",
+    alignSelf: "center",
   },
 
   // Button
@@ -78,9 +98,7 @@ const AppStyles = StyleSheet.create({
   },
 
   SecondaryButton: {
-    //backgroundColor: Colors.secondary,
     borderRadius: 20,
-    // marginBottom: 20,
   },
   secondaryButtonText: {
     color: Colors.textBlack,

@@ -1,4 +1,4 @@
-import { Text, View, ImageBackground } from "react-native";
+import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 // import MapView from "react-native-maps";
 // Components
@@ -8,12 +8,21 @@ import ButtonWithBorder from "../../components/ButtonWithBorder";
 import AppStyles from "../../styles/AppStyles";
 
 const HomeScreen = () => {
-  const username = "John Doe";
-  const city = "New York";
-  const temperature = "25";
+  const errorImage = require("./../../img/app-images/error-message.png");
+  const username: string = "Juan Perez";
+  const city: string = "New York";
+  const temperature: number = 25;
+
+  type DataType = {
+    id: number;
+    title: string;
+    desc: string;
+  };
+  const data: DataType[] = [
+  ];
 
   return (
-    <View style={AppStyles.container}>
+    <ScrollView style={AppStyles.container}>
       <StatusBar style="dark" />
       <Text style={AppStyles.headerTitle}>Buenos dias, {username}.</Text>
       <View style={AppStyles.headerCard}>
@@ -38,15 +47,31 @@ const HomeScreen = () => {
 
       <View>
         <View style={AppStyles.sectionHeader}>
-          <Text style={AppStyles.sectionHeaderTitle}>Registro de analisis</Text>
+          <Text style={AppStyles.sectionHeaderTitle}>Ultimos analisis</Text>
           <ButtonWithBorder
             title="Ver mas"
             onPress={() => console.log("Search")}
           />
         </View>
+
+        {data.length > 0 ? (
+          data.map((item, index) => <Text>{index}</Text>)
+        ) : (
+          <CardError />
+        )}
       </View>
-    </View>
+    </ScrollView>
   );
 };
+
+const CardError = () => {
+  const errorImage = require("./../../img/app-images/error-message.png");
+  return (
+    <View style={AppStyles.errorCard}>
+      <Image source={errorImage} style={AppStyles.noDataImage} />
+      <Text style={AppStyles.errorCardText}>No hay informacion</Text>
+    </View>
+  );
+}
 
 export default HomeScreen;
