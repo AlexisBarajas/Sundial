@@ -3,7 +3,7 @@
 
 const Colors = {
   // color apps
-  primary: '#ff0000',
+  primary: '#8A9CFE',
   secondary: '#0000ff',
   tertiary: '#00ff00',
   // Others

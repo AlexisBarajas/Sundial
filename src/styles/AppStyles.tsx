@@ -16,6 +16,7 @@ const AppStyles = StyleSheet.create({
     maxHeight: 200,
     borderRadius: 20,
     overflow: "hidden",
+    marginBottom: 20,
   },
   headerCardContent: {
     position: "absolute",
@@ -48,6 +49,27 @@ const AppStyles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+
+  // Button
+
+  PrimaryButton: {
+    backgroundColor: Colors.primary,
+    padding: 20,
+    borderRadius: 20,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 20,
+    gap: 10,
+  },
+  primaryButtonText: {
+    color: Colors.text,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  iconColor: {
+    color: Colors.text,
+  }
 })
 
 export default AppStyles;

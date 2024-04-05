@@ -1,6 +1,9 @@
 import { Text, View, ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
 // import MapView from "react-native-maps";
+// Components
+import ButtonWithIcon from "../../components/ButtonWithIcon";
+// Styles
 import AppStyles from "../../styles/AppStyles";
 
 const HomeScreen = () => {
@@ -25,6 +28,12 @@ const HomeScreen = () => {
           </View>
         </ImageBackground>
       </View>
+
+      <ButtonWithIcon
+        icon="search"
+        title="Realizar analisis de zona"
+        onPress={() => console.log("Search")}
+        ></ButtonWithIcon>
     </View>
   );
 };
