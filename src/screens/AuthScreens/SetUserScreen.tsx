@@ -20,8 +20,6 @@ interface Props extends StackScreenProps<any, any> {}
 
 const SetUserScreen = ({ navigation, route }: Props) => {
   const params = route.params;
-  const mail = params?.mail;
-  const pass = params?.pass;
   const [username, setUsername] = useState("");
 
   const handleCreateUser = () => {

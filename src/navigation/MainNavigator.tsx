@@ -7,7 +7,9 @@ const Stack = createStackNavigator();
 
 const MainNavigator: React.FC = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName="Auth"
+    >
       <Stack.Screen name="Auth" component={AuthNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="App" component={AppNavigator} options={{ headerShown: false }} />
     </Stack.Navigator>

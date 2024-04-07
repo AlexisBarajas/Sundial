@@ -1,10 +1,4 @@
-import {
-  ImageBackground,
-  View,
-  Text,
-  Image,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { ImageBackground, View, Text } from "react-native";
 import AppTopBar from "../../components/AppTopBar";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
@@ -19,10 +13,10 @@ interface Props extends StackScreenProps<any, any> {}
 
 const NewUserScreen = ({ navigation, route }: Props) => {
   const params = route.params;
+  const from = params?.from;
   const username = params?.username;
 
   const handleLogin = () => {
-    // Create user
     navigation.navigate("login");
   };
 
@@ -36,7 +30,7 @@ const NewUserScreen = ({ navigation, route }: Props) => {
         <View style={Styles.overlay}>
           <View style={Styles.header}>
             <Text style={Styles.title}>SUNDIAL</Text>
-            <Text style={Styles.text}>Bienvenido, {username}.</Text>
+            <Text style={Styles.text}>Bienvenido, {username}. {from === "recover_password" ? " Recuperaste tu cuenta con exito" : ""}</Text>
           </View>
 
           <View style={Styles.form}>

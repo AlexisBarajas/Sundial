@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { NavigationProp } from "@react-navigation/native";
-import { Text, View, TextInput, ImageBackground } from "react-native";
+import { Text, View, ImageBackground } from "react-native";
 
 // Styles
 import Styles from "../../styles/StyleForm";
@@ -75,7 +75,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
               <LinkText
                 text={"recuperar tu contrasena"}
                 onPress={() =>
-                  navigation.navigate("Auth", { screen: "register" })
+                  navigation.navigate("Auth", { screen: "recover_password" })
                 }
               />
               .

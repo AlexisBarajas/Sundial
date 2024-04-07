@@ -15,7 +15,8 @@ interface Props extends StackScreenProps<any, any> {}
 const ConfirmEmailScreen = ({ navigation, route }: Props) => {
   // const params = JSON.stringify(route.params, null);
   const params = route.params;
-  const email = params?.mail;
+  const email : string = params?.mail;
+  const from : string = params?.from;
   const code = params?.code; // Real code to validate the user
 
   const [userCode, setUserCode] = useState("");
@@ -31,6 +32,16 @@ const ConfirmEmailScreen = ({ navigation, route }: Props) => {
 
   const handleSetPassword = () => {
     // Validate information
+
+    // If the user comes from recover password screen
+    if (from === "recover_password") {
+      navigation.navigate("set_new_password", {
+        mail: email,
+        from,
+      });
+
+      return;
+    }
 
     navigation.navigate("set_password", {
       mail: email,

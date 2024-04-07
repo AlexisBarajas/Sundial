@@ -7,6 +7,8 @@ import ConfirmEmailScreen from './../screens/AuthScreens/ConfirmEmailScreen';
 import SetPasswordScreen from './../screens/AuthScreens/SetPasswordScreen';
 import SetUserScreen from './../screens/AuthScreens/SetUserScreen';
 import NewUserScreen from './../screens/AuthScreens/NewUserScreen';
+import RecoverPassword from './../screens/AuthScreens/RecoverPassword';
+import SetNewPassword from './../screens/AuthScreens/SetNewPassword';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +27,8 @@ const AuthNavigator: React.FC = () => {
       <Stack.Screen name="set_password" component={SetPasswordScreen} options={{ headerShown: false }} />
       <Stack.Screen name="set_user" component={SetUserScreen} options={{ headerShown: false }} />
       <Stack.Screen name="new_user" component={NewUserScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="recover_password" component={RecoverPassword} options={{ headerShown: false }} />
+      <Stack.Screen name="set_new_password" component={SetNewPassword} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };
