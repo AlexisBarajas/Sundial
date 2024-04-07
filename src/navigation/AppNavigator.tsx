@@ -14,6 +14,7 @@ const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer
       independent={true}
+      /* FIXME: Check the index */
       initialState={{ index: 0, routes: [{ name: "Home" }] }}
     >
       <Tab.Navigator
