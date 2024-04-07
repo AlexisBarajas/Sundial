@@ -19,6 +19,9 @@ const HomeScreen = () => {
     desc: string;
   };
   const data: DataType[] = [
+    { id: 1, title: "Analisis 1", desc: "Descripcion 1" },
+    { id: 2, title: "Analisis 2", desc: "Descripcion 2" },
+    { id: 3, title: "Analisis 3", desc: "Descripcion 3" },
   ];
 
   return (
