@@ -5,24 +5,23 @@
   <img src="./src/img/app-images/error-message.png" alt="Sundial App" width="330px" />
 
 <p align="center">
-  - <a href="#instalacion">Instalación</a> -
-  <hr>
+  - <a href="#Installation">Installation</a> -
 </p>
 </div>
 
-<h2 name="instalacion">Instalacion</h2>
+<h2 name="Installation">Installation</h2>
 
-- Clona el proyecto
+- Clone the repository
 
   ```sh
   git clone https://github.com/AlexisBarajas/Sundial
   ```
-- Instala los paquetes
+- Install the packages
 
   ```sh
   npm install
   ```
-- Ejecuta el proyecto
+- Run the project
   ```sh
   npm start
   ```
