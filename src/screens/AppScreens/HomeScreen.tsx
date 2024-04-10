@@ -1,13 +1,16 @@
 import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
-// import MapView from "react-native-maps";
+import { StackScreenProps } from "@react-navigation/stack";
 // Components
-import ButtonWithIcon from "../../components/ButtonWithIcon";
+import {ButtonWithIcon} from "../../components/ButtonWithIcon";
 import ButtonWithBorder from "../../components/ButtonWithBorder";
+import ListElement from "../../components/ListElement";
 // Styles
 import AppStyles from "../../styles/AppStyles";
 
-const HomeScreen = () => {
+interface Props extends StackScreenProps<any, any> {}
+
+const HomeScreen = ( { navigation }: Props )  => {
   const errorImage = require("./../../img/app-images/error-message.png");
   const username: string = "Juan Perez";
   const city: string = "New York";
@@ -56,9 +59,8 @@ const HomeScreen = () => {
             onPress={() => console.log("Search")}
           />
         </View>
-
         {data.length > 0 ? (
-          data.map((item, index) => <Text>{index}</Text>)
+          data.map((item, index) => <ListElement key={index} content={item}/>)
         ) : (
           <CardError />
         )}

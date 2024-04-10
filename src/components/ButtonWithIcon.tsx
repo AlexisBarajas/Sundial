@@ -8,6 +8,7 @@ type ButtonWithIconProps = {
   onPress: () => void;
 }
 
+
 const ButtonWithIcon = ({ icon, title, onPress } : ButtonWithIconProps) => {
   return (
     <TouchableOpacity style={AppStyles.PrimaryButton} onPress={onPress}>
@@ -17,4 +18,4 @@ const ButtonWithIcon = ({ icon, title, onPress } : ButtonWithIconProps) => {
   );
 };
 
-export default ButtonWithIcon;
+export { ButtonWithIcon };

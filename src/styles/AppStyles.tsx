@@ -67,6 +67,24 @@ const AppStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
+  listElement: {
+    padding: 20,
+    borderRadius: 20,
+    backgroundColor: Colors.backgroundCardPrimary,
+    marginBottom: 10,
+  },
+  listElementTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: Colors.textBlack,
+  },
+  listElementDesc: {
+    fontSize: 15,
+    color: Colors.textBlack,
+  },
+  listElementBackgroundPrimary: {
+    backgroundColor: Colors.backgroundCardSecondary,
+  },
 
   // Images
 

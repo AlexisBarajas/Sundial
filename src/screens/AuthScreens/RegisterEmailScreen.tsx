@@ -4,7 +4,6 @@ import { StackScreenProps } from "@react-navigation/stack";
 
 // Styles
 import Styles from "../../styles/StyleForm";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Components
 import InputSendBtn from "../../components/InputSendBtn";

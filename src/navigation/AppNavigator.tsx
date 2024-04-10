@@ -6,6 +6,7 @@ import Colors from "../styles/Colors";
 
 // Screens
 import HomeScreen from "./../screens/AppScreens/HomeScreen";
+// import ReviewAnalysisScreen from "./../screens/AppScreens/ReviewAnalysisScreen";
 import SettingsScreen from "./../screens/AppScreens/SettingsScreen";
 
 const Tab = createBottomTabNavigator();
@@ -14,7 +15,6 @@ const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer
       independent={true}
-      /* FIXME: Check the index */
       initialState={{ index: 0, routes: [{ name: "Home" }] }}
     >
       <Tab.Navigator
@@ -43,6 +43,7 @@ const AppNavigator: React.FC = () => {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} ></Tab.Screen>
+        {/* <Tab.Screen name="Review_analysis" component={ReviewAnalysisScreen} options={{ headerShown: false }} ></Tab.Screen> */}
         <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} ></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>

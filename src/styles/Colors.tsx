@@ -11,6 +11,8 @@ const Colors = {
   borderPrimaryColor: '#000',
   background: '#000000',
   backgroundSecondary: '#fff',
+  backgroundCardPrimary: '#DDE2FF',
+  backgroundCardSecondary: '#EFF2FF',
   overlay: 'rgba(0, 0, 0, 0.4)',
   inputBackgroundColor: 'rgba(255, 255, 255, 0.2)',
   inputIconColor: 'rgba(255, 255, 255, 0.7)',
