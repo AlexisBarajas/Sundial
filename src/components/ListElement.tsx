@@ -16,8 +16,6 @@ const ListElement = ({ content }: { content: DataType }) => {
 
     // navigation.navigate("card_details", {
     //   id: id,
-    //   title: title,
-    //   desc: desc,
     // });
   }
 
