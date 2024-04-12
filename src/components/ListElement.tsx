@@ -1,23 +1,24 @@
 import { View, Text, TouchableWithoutFeedback } from "react-native";
 import AppStyles from "../styles/AppStyles";
 
+// navigate elements
+import { useNavigation } from "@react-navigation/native";
+// import { NavigationContainer } from '@react-navigation/native';
+
 type DataType = {
   id: number;
   title: string;
   desc: string;
 };
 
+type ListElementProps = {
+  content: DataType;
+  onPress: () => void;
+}
 
-const ListElement = ({ content }: { content: DataType }) => {
+const ListElement: React.FC<ListElementProps> =
+  ({ content, onPress }) => {
   const { id, title, desc } = content;
-
-  const goToCardDetails = () => {
-    // console.log(`Go to card details ${id}`);
-
-    // navigation.navigate("card_details", {
-    //   id: id,
-    // });
-  }
 
   const limitWords = (text: string, limit: number) => {
     return desc.length > limit
@@ -26,9 +27,7 @@ const ListElement = ({ content }: { content: DataType }) => {
   };
 
   return (
-    <TouchableWithoutFeedback
-      onPress={goToCardDetails}
-    >
+    <TouchableWithoutFeedback onPress={onPress}>
       <View
         style={[
           AppStyles.listElement,

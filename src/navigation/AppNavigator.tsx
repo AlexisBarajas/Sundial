@@ -3,11 +3,31 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Colors from "../styles/Colors";
-
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // Screens
 import HomeScreen from "./../screens/AppScreens/HomeScreen";
-// import ReviewAnalysisScreen from "./../screens/AppScreens/ReviewAnalysisScreen";
+import AnalysisScreen from "./../screens/AppScreens/AnalysisScreen";
 import SettingsScreen from "./../screens/AppScreens/SettingsScreen";
+
+const HomeStack: any = createNativeStackNavigator();
+
+const HomeStackScreen: React.FC = () => {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+
+      <HomeStack.Screen
+        name="Analysis"
+        component={AnalysisScreen}
+        options={{ headerShown: false }}
+      />
+    </HomeStack.Navigator>
+  );
+};
 
 const Tab = createBottomTabNavigator();
 
@@ -20,14 +40,11 @@ const AppNavigator: React.FC = () => {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName : string = "";
+            let iconName: string = "";
 
             switch (route.name) {
-              case "Home":
+              case "HomeStack":
                 iconName = "home";
-                break;
-              case "Settings":
-                iconName = "settings";
                 break;
               default:
               case "Settings":
@@ -39,12 +56,14 @@ const AppNavigator: React.FC = () => {
           },
           tabBarActiveTintColor: Colors.primary,
           tabBarInactiveTintColor: Colors.gray,
-          tabBarLabel: () => null
+          tabBarLabel: () => null,
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} ></Tab.Screen>
-        {/* <Tab.Screen name="Review_analysis" component={ReviewAnalysisScreen} options={{ headerShown: false }} ></Tab.Screen> */}
-        <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} ></Tab.Screen>
+        <Tab.Screen
+          name="HomeStack"
+          component={HomeStackScreen}
+        ></Tab.Screen>
+
       </Tab.Navigator>
     </NavigationContainer>
   );

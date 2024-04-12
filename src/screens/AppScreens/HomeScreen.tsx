@@ -1,8 +1,15 @@
-import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  ScrollView,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { StackScreenProps } from "@react-navigation/stack";
 // Components
-import {ButtonWithIcon} from "../../components/ButtonWithIcon";
+import { ButtonWithIcon } from "../../components/ButtonWithIcon";
 import ButtonWithBorder from "../../components/ButtonWithBorder";
 import ListElement from "../../components/ListElement";
 // Styles
@@ -10,7 +17,7 @@ import AppStyles from "../../styles/AppStyles";
 
 interface Props extends StackScreenProps<any, any> {}
 
-const HomeScreen = ( { navigation }: Props )  => {
+const HomeScreen = ({ navigation }: any) => {
   const errorImage = require("./../../img/app-images/error-message.png");
   const username: string = "Juan Perez";
   const city: string = "New York";
@@ -21,11 +28,16 @@ const HomeScreen = ( { navigation }: Props )  => {
     title: string;
     desc: string;
   };
+
   const data: DataType[] = [
     { id: 1, title: "Analisis 1", desc: "Descripcion 1" },
     { id: 2, title: "Analisis 2", desc: "Descripcion 2" },
     { id: 3, title: "Analisis 3", desc: "Descripcion 3" },
   ];
+
+  const navigateToAnalysis = () => {
+    navigation.navigate("Analysis", { id: 1 });
+  };
 
   return (
     <ScrollView style={AppStyles.container}>
@@ -47,8 +59,8 @@ const HomeScreen = ( { navigation }: Props )  => {
 
       <ButtonWithIcon
         icon="compass"
-        title="Realizar analisis de zona"
-        onPress={() => console.log("Search")}
+        title="Realizar analisis de zona (test)"
+        onPress={navigateToAnalysis}
       />
 
       <View>
@@ -60,7 +72,13 @@ const HomeScreen = ( { navigation }: Props )  => {
           />
         </View>
         {data.length > 0 ? (
-          data.map((item, index) => <ListElement key={index} content={item}/>)
+          data.map((item, index) => (
+              <ListElement
+                key={index}
+                content={item}
+                onPress={navigateToAnalysis}
+              />
+          ))
         ) : (
           <CardError />
         )}
@@ -77,6 +95,6 @@ const CardError = () => {
       <Text style={AppStyles.errorCardText}>No hay informacion</Text>
     </View>
   );
-}
+};
 
 export default HomeScreen;
