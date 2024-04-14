@@ -62,7 +62,7 @@ const RegisterEmailScreen /* : React.FC<RegisterEmailProps> */ = (
                 value={email}
               />
               <TextInputWithIcon
-                icon={"mail-outline"}
+                icon={"mail"}
                 iconSize={25}
                 keyboardType="email-address"
                 placeholder={"Repite tu correo"}
