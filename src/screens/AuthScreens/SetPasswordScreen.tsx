@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import AppTopBar from "../../components/AppTopBar";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";

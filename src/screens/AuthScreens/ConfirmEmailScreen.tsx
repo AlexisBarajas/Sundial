@@ -8,7 +8,6 @@ import Styles from "../../styles/StyleForm";
 import InputSendBtn from "../../components/InputSendBtn";
 import LinkText from "../../components/LinkText";
 import TextInputWithIcon from "../../components/TextInputWithIcon";
-import AppTopBar from "../../components/AppTopBar";
 
 interface Props extends StackScreenProps<any, any> {}
 

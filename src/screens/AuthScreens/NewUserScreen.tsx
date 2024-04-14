@@ -1,5 +1,4 @@
 import { ImageBackground, View, Text } from "react-native";
-import AppTopBar from "../../components/AppTopBar";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 
