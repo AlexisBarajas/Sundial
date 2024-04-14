@@ -1,13 +1,5 @@
-import {
-  Text,
-  View,
-  ImageBackground,
-  Image,
-  ScrollView,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { StackScreenProps } from "@react-navigation/stack";
 // Components
 import { ButtonWithIcon } from "../../components/ButtonWithIcon";
 import ButtonWithBorder from "../../components/ButtonWithBorder";
@@ -15,10 +7,7 @@ import ListElement from "../../components/ListElement";
 // Styles
 import AppStyles from "../../styles/AppStyles";
 
-interface Props extends StackScreenProps<any, any> {}
-
 const HomeScreen = ({ navigation }: any) => {
-  const errorImage = require("./../../img/app-images/error-message.png");
   const username: string = "Juan Perez";
   const city: string = "New York";
   const temperature: number = 25;
@@ -35,8 +24,8 @@ const HomeScreen = ({ navigation }: any) => {
     { id: 3, title: "Analisis 3", desc: "Descripcion 3" },
   ];
 
-  const navigateToAnalysis = () => {
-    navigation.navigate("Analysis", { id: 1 });
+  const navigateToAnalysis = (id : number) => {
+    navigation.navigate("Analysis", {id: id});
   };
 
   return (
@@ -60,7 +49,7 @@ const HomeScreen = ({ navigation }: any) => {
       <ButtonWithIcon
         icon="compass"
         title="Realizar analisis de zona (test)"
-        onPress={navigateToAnalysis}
+        onPress={() => console.log("Search")}
       />
 
       <View>
@@ -73,11 +62,11 @@ const HomeScreen = ({ navigation }: any) => {
         </View>
         {data.length > 0 ? (
           data.map((item, index) => (
-              <ListElement
-                key={index}
-                content={item}
-                onPress={navigateToAnalysis}
-              />
+            <ListElement
+              key={index}
+              content={item}
+              onPress={() => navigateToAnalysis(item.id)}
+            />
           ))
         ) : (
           <CardError />

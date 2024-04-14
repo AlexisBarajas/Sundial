@@ -1,10 +1,6 @@
 import { View, Text, TouchableWithoutFeedback } from "react-native";
 import AppStyles from "../styles/AppStyles";
 
-// navigate elements
-import { useNavigation } from "@react-navigation/native";
-// import { NavigationContainer } from '@react-navigation/native';
-
 type DataType = {
   id: number;
   title: string;
@@ -14,10 +10,9 @@ type DataType = {
 type ListElementProps = {
   content: DataType;
   onPress: () => void;
-}
+};
 
-const ListElement: React.FC<ListElementProps> =
-  ({ content, onPress }) => {
+const ListElement: React.FC<ListElementProps> = ({ content, onPress }) => {
   const { id, title, desc } = content;
 
   const limitWords = (text: string, limit: number) => {
