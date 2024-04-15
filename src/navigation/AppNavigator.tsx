@@ -57,6 +57,7 @@ const AppNavigator: React.FC = () => {
           tabBarActiveTintColor: Colors.primary,
           tabBarInactiveTintColor: Colors.gray,
           tabBarLabel: () => null,
+          headerShown: false,
         })}
       >
         <Tab.Screen
