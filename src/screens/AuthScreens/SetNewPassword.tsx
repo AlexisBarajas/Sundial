@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import AppTopBar from "../../components/AppTopBar";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -24,7 +23,7 @@ const SetNewPassword = ({ navigation, route }: Props) => {
   const params = route.params;
   const email = params?.mail;
   const from = params?.from;
-  const username = "User"; // TODO: Get the username from de datagbase
+  const username = "User"; // TODO: Get the username from de database
 
   const [password, setPassword] = useState("");
   const [secondPassword, setsecondPassword] = useState("");

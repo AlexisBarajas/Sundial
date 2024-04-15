@@ -1,22 +1,22 @@
-import { View, Text } from "react-native";
 
-type Props = {
-  route: {
-    params: {
-      id: number;
-    };
-  };
-};
+// Dependencies
+import { StackScreenProps } from "@react-navigation/stack";
+// Componets
+import { View, Text, ScrollView } from "react-native";
 
+
+interface Props extends StackScreenProps<any, any> {}
 const AnalysisScreen: React.FC<Props> = ( {route} )  => {
   
-  const { id } = route.params;
+  const params = route.params;
+  const id : number = params?.id;
 
   return (
-    <View>
-      <Text>Analysis ID: {id}</Text>
-    </View>
+    <ScrollView>
+      {/* TODO: Create the screen to show the analisys */}
+    </ScrollView>
   );
+
 }
 
 export default AnalysisScreen;
