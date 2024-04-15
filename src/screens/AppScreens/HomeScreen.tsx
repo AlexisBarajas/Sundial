@@ -1,13 +1,21 @@
-import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
+
 import { StatusBar } from "expo-status-bar";
+
 // Components
-import { ButtonWithIcon } from "../../components/ButtonWithIcon";
-import ButtonWithBorder from "../../components/ButtonWithBorder";
-import ListElement from "../../components/ListElement";
+import { Text, View, ImageBackground, Image, ScrollView } from "react-native";
+
+import ButtonWithIcon from "../../components/buttons/ButtonWithIcon";
+import ButtonWithBorder from "../../components/buttons/ButtonWithBorder";
+import ListElement from "../../components/cards/ListElement";
+import CardError from "../../components/cards/CardError";
+
 // Styles
 import AppStyles from "../../styles/AppStyles";
 
 const HomeScreen = ({ navigation }: any) => {
+  // Screen Constants
+  const image : string = require("./../../img/app-images/error-message.png");
+
   const username: string = "Juan Perez";
   const city: string = "New York";
   const temperature: number = 25;
@@ -25,7 +33,7 @@ const HomeScreen = ({ navigation }: any) => {
   ];
 
   const navigateToAnalysis = (id : number) => {
-    navigation.navigate("Analysis", {id: id});
+    navigation.navigate("Analysis", {id});
   };
 
   return (
@@ -48,7 +56,7 @@ const HomeScreen = ({ navigation }: any) => {
 
       <ButtonWithIcon
         icon="compass"
-        title="Realizar analisis de zona (test)"
+        title="Realizar analisis de zona"
         onPress={() => console.log("Search")}
       />
 
@@ -69,20 +77,15 @@ const HomeScreen = ({ navigation }: any) => {
             />
           ))
         ) : (
-          <CardError />
+          <CardError 
+
+            image={image}
+            text="No hay analisis disponibles"
+          
+          />
         )}
       </View>
     </ScrollView>
-  );
-};
-
-const CardError = () => {
-  const errorImage = require("./../../img/app-images/error-message.png");
-  return (
-    <View style={AppStyles.errorCard}>
-      <Image source={errorImage} style={AppStyles.noDataImage} />
-      <Text style={AppStyles.errorCardText}>No hay informacion</Text>
-    </View>
   );
 };
 

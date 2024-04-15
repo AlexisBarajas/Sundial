@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import Styles from "../../styles/StyleForm";
 
 // Components
-import InputSendBtn from "../../components/InputSendBtn";
+import InputSendBtn from "../../components/buttons/InputSendBtn";
 
 interface Props extends StackScreenProps<any, any> {}
 

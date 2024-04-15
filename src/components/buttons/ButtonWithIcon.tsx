@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, TouchableWithoutFeedbackBase } from 'react-native';
-import AppStyles from '../styles/AppStyles';
+import AppStyles from '../../styles/AppStyles';
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 type ButtonWithIconProps = {
@@ -18,4 +18,4 @@ const ButtonWithIcon = ({ icon, title, onPress } : ButtonWithIconProps) => {
   );
 };
 
-export { ButtonWithIcon };
+export default ButtonWithIcon ;

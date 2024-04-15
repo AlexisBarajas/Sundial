@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity } from 'react-native';
-import AppStyles from '../styles/AppStyles';
+import AppStyles from '../../styles/AppStyles';
 
 type ButtonWithBorderProps = {
     title: string;

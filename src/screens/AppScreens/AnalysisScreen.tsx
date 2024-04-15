@@ -10,6 +10,8 @@ const AnalysisScreen: React.FC<Props> = ( {route} )  => {
   
   const params = route.params;
   const id : number = params?.id;
+  console.log(id);
+  
 
   return (
     <ScrollView>

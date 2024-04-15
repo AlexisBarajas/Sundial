@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableWithoutFeedback } from 'react-native';
-import Styles from "./../styles/StyleForm";
+import Styles from "../../styles/StyleForm";
 
 type TextClickableProps = {
     onPress: () => void;
