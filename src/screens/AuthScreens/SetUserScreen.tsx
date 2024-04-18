@@ -12,7 +12,7 @@ import { useState } from "react";
 import Styles from "../../styles/StyleForm";
 
 // Components
-import InputSendBtn from "../../components/buttons/InputSendBtn";
+import InputSendBtn from "../../components/buttons/ButtonInput";
 import LinkText from "../../components/buttons/LinkText";
 import TextInputWithIcon from "../../components/buttons/TextInputWithIcon";
 
