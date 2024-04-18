@@ -3,7 +3,7 @@ import {
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import Styles from "../styles/StyleForm";
+import Styles from "../../styles/StyleForm";
 
 type InputSendBtnProps = {
   onPress: () => void;

@@ -1,5 +1,5 @@
 import { View, Text, TouchableWithoutFeedback } from "react-native";
-import AppStyles from "../styles/AppStyles";
+import AppStyles from "../../styles/AppStyles";
 
 type DataType = {
   id: number;

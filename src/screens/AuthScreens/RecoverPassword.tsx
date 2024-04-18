@@ -9,9 +9,9 @@ import Styles from "../../styles/StyleForm";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 // Components
-import InputSendBtn from "../../components/InputSendBtn";
-import LinkText from "../../components/LinkText";
-import TextInputWithIcon from "../../components/TextInputWithIcon";
+import InputSendBtn from "../../components/buttons/ButtonInput";
+import LinkText from "../../components/buttons/LinkText";
+import TextInputWithIcon from "../../components/buttons/TextInputWithIcon";
 
 import { Text, View, ImageBackground } from 'react-native';
 

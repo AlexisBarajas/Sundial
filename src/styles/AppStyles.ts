@@ -117,6 +117,13 @@ const AppStyles = StyleSheet.create({
 
   SecondaryButton: {
     borderRadius: 20,
+    // padding: 20,
+    // flexDirection: "row",
+    // justifyContent: "center",
+    // alignItems: "center",
+    // backgroundColor: Colors.gray,
+    // marginBottom: 20,
+    // gap: 10,
   },
   secondaryButtonText: {
     color: Colors.textBlack,
@@ -130,7 +137,19 @@ const AppStyles = StyleSheet.create({
   sectionHeaderTitle: {
     fontSize: 20,
     fontWeight: "bold",
-  }
+  },
+
+  TertiaryButton: {
+    borderRadius: 20,
+    padding: 20,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Colors.gray,
+    marginBottom: 20,
+    gap: 10,
+  },
+
 })
 
 export default AppStyles;

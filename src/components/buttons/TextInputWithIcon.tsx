@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View, KeyboardTypeOptions  } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Styles from "../styles/StyleForm";
+import Styles from "../../styles/StyleForm";
 
 
 type InputTextSendProps = {
