@@ -51,11 +51,7 @@ const HomeScreen = ({ navigation }: any) => {
   const temperature: number = 25; /* TODO: Get this from a weather api */
 
   // User data app TODO: Get this from a db
-  const data: DataType[] = [
-    { id: 1, title: "Analisis 1", desc: "Descripcion 1" },
-    { id: 2, title: "Analisis 2", desc: "Descripcion 2" },
-    { id: 3, title: "Analisis 3", desc: "Descripcion 3" },
-  ];
+  const data: DataType[] = [];
 
   return (
     <ScrollView style={AppStyles.container}>
