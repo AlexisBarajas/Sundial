@@ -2,6 +2,7 @@
   "name": "sundial",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -14,6 +15,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@react-navigation/stack": "^6.3.29",
+    "dotenv": "^16.4.5",
     "expo": "^50.0.17",
     "expo-location": "~16.5.5",
     "expo-status-bar": "~1.11.1",
