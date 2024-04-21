@@ -57,25 +57,33 @@ const HomeScreen = ({ navigation }: any) => {
     <ScrollView style={AppStyles.container}>
       <StatusBar style="dark" />
       <Text style={AppStyles.headerTitle}>Buenos dias, {username}.</Text>
-      <View style={AppStyles.headerCard}>
-        <ImageBackground
-          source={headerImageBackground}
-          style={AppStyles.backgroundCardImage}
-        >
-          <View style={AppStyles.headerCardContent}>
-            <Text style={AppStyles.headerCardContentTextCity}>{city}</Text>
-            <Text style={AppStyles.headerCardContentTextTemperature}>
-              {temperature}°
-            </Text>
-          </View>
-        </ImageBackground>
-      </View>
 
       <ButtonWithIcon
         icon="compass"
         title="Realizar analisis de zona"
         onPress={() => setModalVisible(true)}
       />
+
+      <View>
+        <View style={AppStyles.sectionHeader}>
+          <Text style={AppStyles.sectionHeaderTitle}>Ultimos analisis</Text>
+          <ButtonWithBorder
+            title="Ver mas"
+            onPress={() => console.log("View more... clicked.")}
+          />
+        </View>
+        {data.length > 0 ? (
+          data.map((item, index) => (
+            <ListElement
+              key={index}
+              content={item}
+              onPress={() => navigateToAnalysis(item.id)}
+            />
+          ))
+        ) : (
+          <CardError image={errorImage} text="No hay analisis disponibles" />
+        )}
+      </View>
 
       <Modal
         animationType="slide"
@@ -116,27 +124,6 @@ const HomeScreen = ({ navigation }: any) => {
           </View>
         </TouchableWithoutFeedback>
       </Modal>
-
-      <View>
-        <View style={AppStyles.sectionHeader}>
-          <Text style={AppStyles.sectionHeaderTitle}>Ultimos analisis</Text>
-          <ButtonWithBorder
-            title="Ver mas"
-            onPress={() => console.log("Search")}
-          />
-        </View>
-        {data.length > 0 ? (
-          data.map((item, index) => (
-            <ListElement
-              key={index}
-              content={item}
-              onPress={() => navigateToAnalysis(item.id)}
-            />
-          ))
-        ) : (
-          <CardError image={errorImage} text="No hay analisis disponibles" />
-        )}
-      </View>
     </ScrollView>
   );
 };
