@@ -105,11 +105,10 @@ const HomeScreen = ({ navigation }: any) => {
       </View>
 
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          console.log("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >
