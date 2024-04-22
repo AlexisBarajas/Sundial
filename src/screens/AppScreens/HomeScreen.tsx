@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }: any) => {
 
   // Screen vars
   const errorImage: ImageSourcePropType = require("./../../img/app-images/error-message.png");
-  const [modalVisible, setModalVisible] = useState(false);
+  const [ modalVisible, setModalVisible ] = useState(false);
 
   // App usage vars
   const username: string = "Juan Perez"; /* TODO: Get this from a db */

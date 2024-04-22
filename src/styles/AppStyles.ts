@@ -98,7 +98,7 @@ const AppStyles = StyleSheet.create({
   // Button
 
   PrimaryButton: {
-    backgroundColor: Colors.primary,
+    backgroundColor: "none",
     padding: 20,
     borderRadius: 20,
     flexDirection: "row",
@@ -113,6 +113,9 @@ const AppStyles = StyleSheet.create({
   },
   iconColor: {
     color: Colors.text,
+  },
+  PrimaryBackgroundButton: {
+    backgroundColor: Colors.primary,
   },
 
   SecondaryButton: {
@@ -138,6 +141,9 @@ const AppStyles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  SecondaryBackgroundButton: {
+    backgroundColor: Colors.gray,
+  },
 
   TertiaryButton: {
     borderRadius: 20,
@@ -145,7 +151,7 @@ const AppStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.gray,
+    // backgroundColor: Colors.gray,
     marginBottom: 20,
     gap: 10,
   },
