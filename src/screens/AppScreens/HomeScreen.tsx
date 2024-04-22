@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Text,
   View,
-  ImageBackground,
   ScrollView,
   ImageSourcePropType,
   Modal,
@@ -18,6 +17,7 @@ import CardError from "../../components/cards/CardError";
 
 // Utilities
 import { getPermission } from "../../utils/permissions/locationPermissions";
+import { navigateTo } from "../../utils/navigator/navigateTo";
 
 // Styles
 import AppStyles from "../../styles/AppStyles";
@@ -34,24 +34,43 @@ type DataType = {
 };
 
 const HomeScreen = ({ navigation }: any) => {
-  // Navigation functions
-  const navigateToAnalysis = (id: number) => {
-    navigation.navigate("Analysis", { id });
-  };
 
   // Screen vars
   const errorImage: ImageSourcePropType = require("./../../img/app-images/error-message.png");
-  const headerImageBackground: ImageSourcePropType = require("./../../img/app-images/header-home.jpg");
   const [modalVisible, setModalVisible] = useState(false);
 
   // App usage vars
   const username: string = "Juan Perez"; /* TODO: Get this from a db */
-  const city: string =
-    "New York"; /* TODO: Get this from a location permission */
   const temperature: number = 25; /* TODO: Get this from a weather api */
 
   // User data app TODO: Get this from a db
-  const data: DataType[] = [];
+  const data: DataType[] = [
+    {
+      id: 1,
+      title: "Analisis de zona 1",
+      desc: "Analisis de la zona 1 de la ciudad de New York",
+    },
+    {
+      id: 2,
+      title: "Analisis de zona 2",
+      desc: "Analisis de la zona 2 de la ciudad de New York",
+    },
+    {
+      id: 3,
+      title: "Analisis de zona 3",
+      desc: "Analisis de la zona 3 de la ciudad de New York",
+    },
+    {
+      id: 4,
+      title: "Analisis de zona 4",
+      desc: "Analisis de la zona 4 de la ciudad de New York",
+    },
+    {
+      id: 5,
+      title: "Analisis de zona 5",
+      desc: "Analisis de la zona 5 de la ciudad de New York",
+    },
+  ];
 
   return (
     <ScrollView style={AppStyles.container}>
@@ -77,7 +96,7 @@ const HomeScreen = ({ navigation }: any) => {
             <ListElement
               key={index}
               content={item}
-              onPress={() => navigateToAnalysis(item.id)}
+              onPress={() => navigateTo(navigation, "Analysis", {id: item.id})}
             />
           ))
         ) : (
@@ -111,13 +130,14 @@ const HomeScreen = ({ navigation }: any) => {
                 <ButtonWithIcon
                   icon="pin"
                   title="Analisis local"
-                  onPress={() => console.log("xx")}
-                />
+                  onPress={() => navigateTo(navigation, "doAnalysis", {area: "local"})}
+                  />
+
                 <ButtonWithIcon
                   type="secondary"
                   icon="navigate"
                   title="Otra area"
-                  onPress={() => console.log("x")}
+                  onPress={() => navigateTo(navigation, "doAnalysis", {area: "other"})}
                 />
               </View>
             </View>

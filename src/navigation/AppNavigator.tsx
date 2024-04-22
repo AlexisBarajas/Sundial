@@ -7,6 +7,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // Screens
 import HomeScreen from "./../screens/AppScreens/HomeScreen";
 import AnalysisScreen from "./../screens/AppScreens/AnalysisScreen";
+import DoAnalysisScreen from "./../screens/AppScreens/DoAnalysisScreen";
+
 import SettingsScreen from "./../screens/AppScreens/SettingsScreen";
 
 const HomeStack: any = createNativeStackNavigator();
@@ -23,6 +25,12 @@ const HomeStackScreen: React.FC = () => {
       <HomeStack.Screen
         name="Analysis"
         component={AnalysisScreen}
+        options={{ headerShown: false }}
+      />
+
+      <HomeStack.Screen
+        name="doAnalysis"
+        component={DoAnalysisScreen}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>

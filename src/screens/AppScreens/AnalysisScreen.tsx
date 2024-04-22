@@ -5,11 +5,14 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { View, Text, ScrollView } from "react-native";
 
 
-interface Props extends StackScreenProps<any, any> {}
+interface Props extends StackScreenProps<any> {}
+
 const AnalysisScreen: React.FC<Props> = ( {route} )  => {
+  console.log(route);
   
-  const params = route.params;
-  const id : number = params?.id;
+  
+  const { id } : any = route.params;
+  // const id : number = params?.id;
   console.log(id);
   
 
