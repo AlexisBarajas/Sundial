@@ -14,17 +14,13 @@ import ButtonWithIcon from "../../components/buttons/ButtonWithIcon";
 import ButtonWithBorder from "../../components/buttons/ButtonWithBorder";
 import ListElement from "../../components/cards/ListElement";
 import CardError from "../../components/cards/CardError";
+import BtnModal from "../../components/modals/BtnModal";
 
 // Utilities
-import { getPermission } from "../../utils/permissions/locationPermissions";
 import { navigateTo } from "../../utils/navigator/navigateTo";
 
 // Styles
 import AppStyles from "../../styles/AppStyles";
-import ModalStyles from "../../styles/ModalStyles";
-
-// Icons
-import Ionicons from "react-native-vector-icons/Ionicons";
 
 // types
 type DataType = {
@@ -33,15 +29,97 @@ type DataType = {
   desc: string;
 };
 
-const HomeScreen = ({ navigation }: any) => {
+const AnalysisConfig = {
+  area: "local",
+  cropName: "corn",
+  setArea: (area: string) => {
+    AnalysisConfig.area = area;
+  },
+  getArea: () => {
+    return AnalysisConfig.area;
+  },
+  setCropName: (cropName: string) => {
+    AnalysisConfig.cropName = cropName;
+  },
+  getCropName: () => {
+    return AnalysisConfig.cropName;
+  },
+};
 
+const HomeScreen = ({ navigation }: any) => {
   // Screen vars
   const errorImage: ImageSourcePropType = require("./../../img/app-images/error-message.png");
-  const [ modalVisible, setModalVisible ] = useState(false);
+
+  const [modalAreaVisible, setAreaModalVisible] = useState(false);
+  const [cropModalVisible, setCropModalVisible] = useState(false);
 
   // App usage vars
   const username: string = "Juan Perez"; /* TODO: Get this from a db */
-  const temperature: number = 25; /* TODO: Get this from a weather api */
+
+  // Modal crop data
+  const cropDataBtns = [
+    {
+      icon: "home",
+      text: "Cultivo de cana",
+      onPress: () => {
+        AnalysisConfig.setCropName("cane");
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+    {
+      icon: "home",
+      text: "Cultivo de arroz",
+      onPress: () => {
+        AnalysisConfig.setCropName("rice");
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+    {
+      icon: "home",
+      text: "Cultivo de frijol",
+      onPress: () => {
+        AnalysisConfig.setCropName("beans");
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+    {
+      icon: "home",
+      text: "Cultivo de maiz",
+      onPress: () => {
+        AnalysisConfig.setCropName("corn");
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+    {
+      icon: "home",
+      text: "Cultivo de trigo",
+      onPress: () => {
+        AnalysisConfig.setCropName("wheat");
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+  ];
+
+  const typeOfAnalysis = [
+    {
+      icon: "pin",
+      text: "Analisis local",
+      onPress: () => {
+        AnalysisConfig.setArea("local");
+        setAreaModalVisible(!modalAreaVisible);
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+    {
+      icon: "navigate",
+      text: "Otra area",
+      onPress: () => {
+        AnalysisConfig.setArea("otros");
+        setAreaModalVisible(!modalAreaVisible);
+        setCropModalVisible(!cropModalVisible);
+      },
+    },
+  ];
 
   // User data app TODO: Get this from a db
   const data: DataType[] = [
@@ -80,7 +158,23 @@ const HomeScreen = ({ navigation }: any) => {
       <ButtonWithIcon
         icon="compass"
         title="Realizar analisis de zona"
-        onPress={() => setModalVisible(true)}
+        onPress={() => setAreaModalVisible(!modalAreaVisible)}
+      />
+
+      <BtnModal
+        visible={modalAreaVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setAreaModalVisible(!modalAreaVisible)}
+        buttons={typeOfAnalysis}
+      />
+
+      <BtnModal
+        visible={cropModalVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setCropModalVisible(!cropModalVisible)}
+        buttons={cropDataBtns}
       />
 
       <View>
@@ -96,53 +190,15 @@ const HomeScreen = ({ navigation }: any) => {
             <ListElement
               key={index}
               content={item}
-              onPress={() => navigateTo(navigation, "Analysis", {id: item.id})}
+              onPress={() =>
+                navigateTo(navigation, "Analysis", { id: item.id })
+              }
             />
           ))
         ) : (
           <CardError image={errorImage} text="No hay analisis disponibles" />
         )}
       </View>
-
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <TouchableWithoutFeedback
-          style={ModalStyles.centeredView}
-          onPress={() => setModalVisible(!modalVisible)}
-        >
-          <View style={ModalStyles.centeredView}>
-            <View style={ModalStyles.modalView}>
-              <View style={ModalStyles.modalHeader}>
-                <TouchableOpacity
-                  onPress={() => setModalVisible(!modalVisible)}
-                >
-                  <Ionicons name="close" size={35}></Ionicons>
-                </TouchableOpacity>
-              </View>
-              <View style={ModalStyles.modalBody}>
-                <ButtonWithIcon
-                  icon="pin"
-                  title="Analisis local"
-                  onPress={() => navigateTo(navigation, "doAnalysis", {area: "local"})}
-                  />
-
-                <ButtonWithIcon
-                  type="secondary"
-                  icon="navigate"
-                  title="Otra area"
-                  onPress={() => navigateTo(navigation, "doAnalysis", {area: "other"})}
-                />
-              </View>
-            </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
     </ScrollView>
   );
 };
