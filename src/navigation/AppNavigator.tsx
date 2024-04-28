@@ -14,6 +14,7 @@ import SettingsScreen from "./../screens/AppScreens/SettingsScreen";
 const HomeStack: any = createNativeStackNavigator();
 
 const HomeStackScreen: React.FC = () => {
+  /* Screens in stack */
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -29,7 +30,7 @@ const HomeStackScreen: React.FC = () => {
       />
 
       <HomeStack.Screen
-        name="doAnalysis"
+        name="DoAnalysis"
         component={DoAnalysisScreen}
         options={{ headerShown: false }}
       />
@@ -55,11 +56,9 @@ const AppNavigator: React.FC = () => {
                 iconName = "home";
                 break;
               default:
-              case "Settings":
-                iconName = "help";
+                iconName = "home";
                 break;
             }
-
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: Colors.primary,
@@ -68,11 +67,8 @@ const AppNavigator: React.FC = () => {
           headerShown: false,
         })}
       >
-        <Tab.Screen
-          name="HomeStack"
-          component={HomeStackScreen}
-        ></Tab.Screen>
-
+        {/* List of elements in the tab bar */}
+        <Tab.Screen name="HomeStack" component={HomeStackScreen}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
